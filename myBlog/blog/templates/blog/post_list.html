@@ -1,16 +1,13 @@
-<html>
-    <head>
-        <title>My Bog</title>
-    </head>
-    <body>
+{% extends 'blog/base.html'%}
+
+{%block content %}
+<div>
+    {% for post in posts%}
         <div>
-            {% for post in posts%}
-                <div>
-                    <p>published : {{post.published_date | date:"M d, Y"}}</p>
-                    <h2><a href=''>{{post.title}}</a></h2>
-                    <p>{{post.text | linebreaksbr}}</p>
-                </div>
-            {% endfor %}
-        </div>        
-    </body>
-</html>
+            <p>published : {{post.published_date | date:"M d, Y"}}</p>
+            <h2><a href=''>{{post.title}}</a></h2>
+            <p>{{post.text | linebreaksbr}}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
