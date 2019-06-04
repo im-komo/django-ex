@@ -5,6 +5,7 @@ from django.utils import timezone
 # Create your models here.
 class Task(models.Model):
     TAGS = (('T', 'Technology'), ('F', 'Food'))
+    # author =models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) //related_name='<anything>'
     title = models.CharField(max_length=200)
     text = models.TextField()
     tags = models.CharField(max_length=1, choices=TAGS)
