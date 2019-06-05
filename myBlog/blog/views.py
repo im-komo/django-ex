@@ -19,7 +19,10 @@ def post_detail(request, pk):
     print(post)
     return render(request, 'blog/post_detail.html', {'post':post})
 
-def post_new(request, pk):
+def post_new(request, pk=None):
+    if pk==None:
+        form = PostForm()
+        return render(request, 'blog/post_new.html', {'form': form})
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)

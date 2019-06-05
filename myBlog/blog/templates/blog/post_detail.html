@@ -3,7 +3,7 @@
 {%block content %}
 <div>
         <div>
-            {% if request.user == post.author %}
+            {% if request.user == post.author and user.is_authenticated %}
                 <a href='{% url 'post_new' pk=post.pk %}'>Edit</a>
             {% endif %}
             {% if post.published_date %}

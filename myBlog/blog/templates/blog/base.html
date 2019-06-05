@@ -14,8 +14,10 @@
         {% block content%}
         {% endblock %}
 
+        {% if user.isauthenticated %}
         <div>
             <button><a href='{% url 'post_new' %}'>New Post</a></button>
         </div>
+        {% endif %}
     </body>
 </html>
